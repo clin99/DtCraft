@@ -24,7 +24,7 @@ matrix:
 before_install:
   # Install gcc 7 && autotool
   - eval "${MATRIX_EVAL}"
-  - sudo apt-get install automake
+  - g++-7 -v
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
 
 # Build steps
