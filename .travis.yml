@@ -30,6 +30,6 @@ before_install:
 # Build steps
 script:
   - ./configure 
-  - autoreconfig -if
+  - autoreconf -if
   - make -j4
   - make regression
