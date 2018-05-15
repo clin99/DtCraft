@@ -1,0 +1,32 @@
+sudo: required
+  
+# Enable C++ support
+language: cpp
+
+# Compiler selection
+compiler:
+  - g++
+ 
+matrix:
+  include:
+    os: linux
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - g++-7
+    env:
+      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+
+
+before_install:
+  # Install gcc 7 && cmake 3.10
+  - eval "${MATRIX_EVAL}"
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
+
+# Build steps
+script:
+  - ./configure 
+  - make -j4
+  - make regression
