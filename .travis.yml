@@ -29,7 +29,7 @@ before_install:
 
 # Build steps
 script:
-  - g++-7 ./test.cpp
+  - g++-7 -std=c++17 ./test.cpp
   #- ./configure 
     #- autoreconf -if
     #- make -j4
