@@ -29,7 +29,9 @@ before_install:
 
 # Build steps
 script:
-  - ./configure 
-  - autoreconf -if
-  - make -j4
-  - make regression
+  - g++-7 ./test.cpp
+  #- ./configure 
+    #- autoreconf -if
+    #- make -j4
+    #- make regression
+
