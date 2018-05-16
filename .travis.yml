@@ -26,6 +26,7 @@ before_install:
   - eval "${MATRIX_EVAL}"
   - g++-7 -v
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
+  - /sbin/ldconfig -p | grep stdc++
 
 # Build steps
 script:
