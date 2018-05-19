@@ -25,9 +25,10 @@ matrix:
 before_install:
   # Install gcc 7 && autotool
   - apt list --installed | grep g++
-  - sudo apt-get purge --auto-remove g++-4.8
   - eval "${MATRIX_EVAL}"
   - sudo apt-get install libstdc++6
+  - sudo apt-get install g++-7-multilib
+  - sudo apt-get install gcc-7-multilib
   - g++-7 -v
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
   - /sbin/ldconfig -p | grep stdc++
