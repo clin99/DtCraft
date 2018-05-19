@@ -16,9 +16,9 @@ matrix:
         sources:
           - ubuntu-toolchain-r-test
         packages:
-          - g++-8
+          - g++-7
     env:
-      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 
 
@@ -27,13 +27,14 @@ before_install:
   - apt list --installed | grep g++
   - eval "${MATRIX_EVAL}"
   - sudo apt-get install libstdc++6
-  - g++-8 -v --verbose
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
+  - sudo apt-get update -qq
+  - g++-7 -v --verbose
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
   - /sbin/ldconfig -p | grep stdc++
 
 # Build steps
 script:
-  - g++-8 -std=c++1z ./test.cpp -v --verbose
+  - g++-7 -std=c++1z ./test.cpp -v --verbose
   #- ./configure 
     #- autoreconf -if
     #- make -j4
