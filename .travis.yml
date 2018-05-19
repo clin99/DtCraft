@@ -27,15 +27,13 @@ before_install:
   - apt list --installed | grep g++
   - eval "${MATRIX_EVAL}"
   - sudo apt-get install libstdc++6
-  - sudo apt-get install g++-7-multilib
-  - sudo apt-get install gcc-7-multilib
   - g++-7 -v
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
   - /sbin/ldconfig -p | grep stdc++
 
 # Build steps
 script:
-  - g++-7 -std=c++17 ./test.cpp
+  - g++-7 -std=c++1z ./test.cpp
   #- ./configure 
     #- autoreconf -if
     #- make -j4
