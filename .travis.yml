@@ -24,6 +24,7 @@ matrix:
 
 before_install:
   # Install gcc 7 && autotool
+  - apt list --installed | grep g++
   - eval "${MATRIX_EVAL}"
   - sudo apt-get install libstdc++6
   - g++-7 -v
