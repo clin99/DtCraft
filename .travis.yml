@@ -27,7 +27,7 @@ before_install:
   - apt list --installed | grep g++
   - eval "${MATRIX_EVAL}"
   - sudo apt-get install libstdc++6
-  - g++-7 -v
+  - g++-7 -v --verbose
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
   - /sbin/ldconfig -p | grep stdc++
 
